@@ -3,21 +3,21 @@
 // Define defaults for each variable.
 
 $base-font-family: Helvetica, Arial, Oswald, sans-serif, !default;
-$base-font-size: 15px !default;
+$base-font-size: 14px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.6 !default;
 
 $spacing-unit:     30px !default;
 
-$text-color:       #454545 !default;
+$text-color:       #000000 !default;
 $background-color: #fff !default;
 
 $grey-color:       #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
 
-$white-color: #b1b1b1 !default;
+$white-color: #fdfdfd !default;
 
 $table-text-align: left !default;
 
