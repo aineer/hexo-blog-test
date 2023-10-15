@@ -1,6 +1,6 @@
 # 介绍
 
-基于一款 jekyll（[主题](https://github.com/TMaize/tmaize-blog)，感谢他们提供支持
+基于一款 jekyll[主题](https://github.com/TMaize/tmaize-blog)，感谢他们提供支持
 欢迎添加友链
 
 # 使用
