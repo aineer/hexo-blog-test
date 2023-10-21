@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: mypost
 title: Arch Linux 安装教程
 author: Two
 catrgories: jekyll
