@@ -3,10 +3,10 @@ layout: mypost
 title: Arch Linux 安装教程
 author: Two
 catrgories: jekyll
-tags: [Arch Linux GNU/Linux 自由软件 操作系统]
+tags: [Arch Linux, GNU/Linux, 自由软件, 操作系统]
 ---
 
-## 更新于2023年10月21日
+> 更新于2023年10月21日
 
 ### 版本：1.1
 
@@ -50,11 +50,11 @@ tags: [Arch Linux GNU/Linux 自由软件 操作系统]
 
 如图：
 
-![ventoy img](/_data/images/2023-10-11-arch-linux-insatll_img/ventoy_install.png)
+![ventoy img](/posts/2023/10/21/ventoy_install.png)
 
 点安装
 
-![安装完成](/_data/images/2023-10-11-arch-linux-insatll_img/ventoy_install_done.png)
+![安装完成](/posts/2023/10/21/ventoy_install_done.png)
 
 完成
 然后把下载的 Arch Linux ISO 文件移动/复制到新格式化的U盘里。
@@ -67,11 +67,11 @@ Windows 10里右键点击 「开始菜单」 > 点击 「磁盘管理」
 
 右键点击 「需要压缩的分区」 > 点击 「压缩卷」
 
-![disk_manager](/_data/images/2023-10-11-arch-linux-insatll_img/disk_manager.avif)
+![disk_manager](/posts/2023/10/21/disk_manager.avif)
 
 在输入「压缩空间量\(MB\)」里输入你想要为 Arch Linux 分配的空间，我这里是128G。
 
-![compression](/_data/images/2023-10-11-arch-linux-insatll_img/compression.webp)
+![compression](/posts/2023/10/21/compression.webp)
 
 点压缩，然后关闭 Windows 磁盘管理程序。
 
@@ -93,9 +93,9 @@ Windows 10里右键点击 「开始菜单」 > 点击 「磁盘管理」
 
 重启计算机到 Ventor 的引导界面，然后点击 Arch Linux ISO 进入到 grub 里面点击第一个条目也就是「Arch Linux install medium（x86-64，UEFI）」回车。
 
-![archlinux_grub_setup](/_data/images/2023-10-11-arch-linux-insatll_img/uefi_grub_setup.png)
+![archlinux_grub_setup](/posts/2023/10/21/uefi_grub_setup.png)
 
-![start](/_data/images/2023-10-11-arch-linux-insatll_img/start.png)
+![start](/posts/2023/10/21/start.png)
 
 进入到安装界面。
 
@@ -105,25 +105,25 @@ Windows 10里右键点击 「开始菜单」 > 点击 「磁盘管理」
 
 ### 教程分几步
 
-1. [禁用 reflector](#1)
-2. [验证引导模式](#2)
-3. [联网](#3)
-4. [测试网络连通性](#4)
-5. [同步时间](#5)
-6. [更换镜像源](#6)
-7. [磁盘分区](#7)
-8. [格式化](#8)
-9. [挂载](#9)
-10. [安装基本系统和软件](#10)
-11. [生成 fstab 文件](#11)
-12. [Chroot root](#12)
-13. [设置主机名和时区](#13)
-14. [硬件时间设置](#14)
-15. [设置 Locale](#15)
-16. [设置 root 密码](#16)
-17. [安装微码](#17)
-18. [安装和设置引导程序](#18)
-19. [重启到新系统](#19)
+1. [禁用 reflector] (#1)
+2. [验证引导模式] (#2)
+3. [联网] (#3)
+4. [测试网络连通性] (#4)
+5. [同步时间] (#5)
+6. [更换镜像源] (#6)
+7. [磁盘分区] (#7)
+8. [格式化] (#8)
+9. [挂载] (#9)
+10. [安装基本系统和软件] (#10)
+11. [生成 fstab 文件] (#11)
+12. [Chroot root] (#12)
+13. [设置主机名和时区] (#13)
+14. [硬件时间设置] (#14)
+15. [设置 Locale] (#15)
+16. [设置 root 密码] (#16)
+17. [安装微码] (#17)
+18. [安装和设置引导程序] (#18)
+19. [重启到新系统] (#19)
 
 下面根据这些步骤进行安装。
 
@@ -142,7 +142,7 @@ Reflector 是一个 Python 脚本；它从 Arch Linux Mirror Status 页面获取
 systemctl stop reflector
 ```
 
-![stop](/_data/images/2023-10-11-arch-linux-insatll_img/stop.png)
+![stop](/posts/2023/10/21/stop.png)
 
 ## > 验证引导模式 {#2}
 
@@ -152,7 +152,7 @@ systemctl stop reflector
 ls /sys/firmware/efi/efivars/
 ```
 
-![efivars](/_data/images/2023-10-11-arch-linux-insatll_img/efi_var.png)
+![efivars](/posts/2023/10/21/efi_var.png)
 
 可以看到输入了一堆EFI变量，代表当前是UEFI启动。（如果是传统BIOS 启动可能根本不会有这个目录）。
 
@@ -189,19 +189,19 @@ Arch Linux 的安装需要联网。
 ping -c 4 www.baidu.com
 ```
 
-![ping baidu.com](/_data/images/2023-10-11-arch-linux-insatll_img/ping_net.png)
+![ping baidu.com](/posts/2023/10/21/ping_net.png)
 
 如果显示超时的话请回到联网一节重新连接。
 
 ## > 同步时间 {#5}
 
-同步系统时间是**非常重要**的。系统时间不正确时有些应用程序甚至无法正常执行。这里用 timedatectl 同步时间。
+同步系统时间是**非常重要**的。系统时间不正确时有些应用程序甚至无法正常执行。这里用 **timedatectl** 同步时间。
 
 ```bash
 timedatectl set-ntp true
 ```
 
-![sync_time](/_data/images/2023-10-11-arch-linux-insatll_img/sync_time.png)
+![sync_time](/posts/2023/10/21/sync_time.png)
 
 ## > 更换镜像源 {#6}
 
@@ -225,7 +225,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\$arch
 ```
 
 如图：
-![mirror](/_data/images/2023-10-11-arch-linux-insatll_img/mirror_list.png)
+![mirror](/posts/2023/10/21/mirror_list.png)
 
 ## > 磁盘分区 {#7}
 
@@ -238,7 +238,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\$arch
 lsblk # 查看你的分区配置和信息
 ```
 
-![lsblk](/_data/images/2023-10-11-arch-linux-insatll_img/lsblk_message.png)
+![lsblk](/posts/2023/10/21/lsblk_message.png)
 
 准备分区
 
@@ -249,11 +249,11 @@ cfdisk /dev/nvmeXn1
 
 cfdisk 是一个磁盘分区工具，用来方便的进行磁盘分区。
 
-![partiton lable typw](/_data/images/2023-10-11-arch-linux-insatll_img/select_label_table.png)
+![partiton lable typw](/posts/2023/10/21/select_label_table.png)
 
 分区表类型视情况选择（近年的新硬盘一般是GPT）。用你键盘的方向键选中，选中好摁Enter。这里选择GPT。
 
-![paretion](/_data/images/2023-10-11-arch-linux-insatll_img/cfdisk_parttion.png)
+![paretion](/posts/2023/10/21/cfdisk_parttion.png)
 
 通过方向键 ↑ 和 ↓ 可以在要操作磁盘分区移动；通过方向键 ← 和 → 在对当前高亮的磁盘分区或空余空间将要执行的操作中移动。
 
@@ -263,19 +263,19 @@ cfdisk 是一个磁盘分区工具，用来方便的进行磁盘分区。
 
 选中「Free Space」> 再选中操作「New」> 然后按下回车「Enter」以新建分区。摁下Enter后左下角的「Partition size」是叫你输入分区大小（单位可以是MB或者是GB等等）这里输入400MB后摁Enter，成功新建分区。默认新建的分区类型是linux filesystem，我们需要将类型更改为EFI System。用方向键←、→选中操作[Type] > 然后按下Enter > 通过方向键 ↑ 和 ↓ 选中 EFI System > 最后按下 Enter。
 
-![efi](/_data/images/2023-10-11-arch-linux-insatll_img/select_table_efi.png)
+![efi](/posts/2023/10/21/select_table_efi.png)
 
 然后分交换分区。再次选中「Free Space」 > 再选中操作「New」 > 然后按下回车「Enter」以新建swap分区（内存快满时，会将一部分空闲内存转移到 swap 分区）
 
 这里输入2G（一般我建议小于或等于16G分内存的二分之一倍或者是内存两倍，如果你内存够大甚至可以不用分）后摁Enter，成功新建分区。默认新建的分区类型是linux filesystem，我们需要将类型更改为Linux swap。用方向键←、→选中操作[Type] > 然后按下Enter > 通过方向键 ↑ 和 ↓ 选中 Linux swap > 最后按下 Enter。
 
-![swap](/_data/images/2023-10-11-arch-linux-insatll_img/select_table_swap.png)
+![swap](/posts/2023/10/21/select_table_swap.png)
 
 接下来要在分一个分区当根目录，因为这里文件系统使用btrfs所以**不需要分单独的/home分区**，只需要用子卷来划分 / 和 /home 就好。
 
 这里我分配了剩下的全部空间当根目录（根据实际情况）。然后分区类型就是「linux filesystem」不需要更换。
 
-![mnt](/_data/images/2023-10-11-arch-linux-insatll_img/select_table_mnt.png)
+![mnt](/posts/2023/10/21/select_table_mnt.png)
 
 分区完毕，用方向键选中[Write]，然后左下角提示你是否确定写入，检查分区无误（**一定要耐心检查，不要搞错了不然很可能会丢失数据**）后输入“yes”然后摁 Enter 写入。 写入后完毕用方向键选中[Quit]退出 cfdisk 分区工具。
 
@@ -283,7 +283,7 @@ cfdisk 是一个磁盘分区工具，用来方便的进行磁盘分区。
 
 退出后再次用 lsblk 检查磁盘分区有无错误。（这里sda下面的sda1、sda2、sda3都是我刚才的分区，以实际情况为准）
 
-![lsblk](/_data/images/2023-10-11-arch-linux-insatll_img/lsblk_parttion_message.png)
+![lsblk](/posts/2023/10/21/lsblk_parttion_message.png)
 
 ## > 格式化 {#8}
 
@@ -297,7 +297,7 @@ cfdisk 是一个磁盘分区工具，用来方便的进行磁盘分区。
 mkfs.fat -F32 /dev/sdxn # 看你自己的分区，这里是sda1
 ```
 
-![efi](/_data/images/2023-10-11-arch-linux-insatll_img/mkfs_efi.png)
+![efi](/posts/2023/10/21/mkfs_efi.png)
 
 然后是对应的 swap 分区：
 
@@ -305,7 +305,7 @@ mkfs.fat -F32 /dev/sdxn # 看你自己的分区，这里是sda1
 mkswap /dev/sdxn
 ```
 
-![swap](/_data/images/2023-10-11-arch-linux-insatll_img/mkfs.swap.png)
+![swap](/posts/2023/10/21/mkfs.swap.png)
 
 最后格式化btrfs分区
 
@@ -315,7 +315,7 @@ mkfs.btrfs -L ArchLinuxFileSystem /dev/sdxn
 
 ### 注：-L后指定该分区的表（可以理解为名字），这里是ArchLinuxFileSystem。可以自定义，但不能使用特殊字符以及空格
 
-![btrfs](/_data/images/2023-10-11-arch-linux-insatll_img/mkfs_btrfs.png)
+![btrfs](/posts/2023/10/21/mkfs_btrfs.png)
 
 为了创建字卷要先挂载到/mnt
 
@@ -328,7 +328,7 @@ mount -t btrfs -o compress=zstd /dev/sdxn /mnt
 df -h
 ```
 
-![df -h](/_data/images/2023-10-11-arch-linux-insatll_img/df-message.png "可以看到（这里是/dev/sda3）已经挂载上/mnt了")
+![df -h](/posts/2023/10/21/df-message.png "可以看到（这里是/dev/sda3）已经挂载上/mnt了")
 
 创建 @/ 和 @home 两个子卷，字卷名字可以任意。这里叫 @/ 和 @home，是因为「timeshift」快照工具只认这种字卷名，如果你不打算用 timeshift 来创建和管理 btrfs 快照）也可以取其他的快照名。
 
@@ -339,7 +339,7 @@ btrfs subvolume create /mnt/@home
 # 创建 /home 子卷
 ```
 
-![subvolume](/_data/images/2023-10-11-arch-linux-insatll_img/create_subvolume.png "创建字卷")
+![subvolume](/posts/2023/10/21/create_subvolume.png "创建字卷")
 
 检查一下
 
@@ -347,7 +347,7 @@ btrfs subvolume create /mnt/@home
 btrfs subvolume list -p /mnt
 ```
 
-![list subvolume](/_data/images/2023-10-11-arch-linux-insatll_img/list_subvolume.png "检查字卷情况")
+![list subvolume](/posts/2023/10/21/list_subvolume.png "检查字卷情况")
 
 完毕后卸载 /mnt，以便接下来挂载
 
@@ -370,7 +370,7 @@ mount /dev/sdxn /mnt/boot/efi # 挂载 /boot/efi 目录
 swapon /dev/sdxn # 启动交换分区
 ```
 
-![mount_to_mnt](/_data/images/2023-10-11-arch-linux-insatll_img/mount_parttion_to_mnt.png "不要挂载错了哦😮")
+![mount_to_mnt](/posts/2023/10/21/mount_parttion_to_mnt.png "不要挂载错了哦😮")
 
 挂载完毕后检查下：
 
@@ -378,7 +378,7 @@ swapon /dev/sdxn # 启动交换分区
 lsblk 
 ```
 
-![cleck /mnt](/_data/images/2023-10-11-arch-linux-insatll_img/lsblk_cleck_mnt.png "要确认好才继续")
+![cleck /mnt](/posts/2023/10/21/lsblk_cleck_mnt.png "要确认好才继续")
 
 查看下 swap 分区的情况：
 
@@ -386,7 +386,7 @@ lsblk
 free -h
 ```
 
-![cleck swap](/_data/images/2023-10-11-arch-linux-insatll_img/free_cleck_swap.png "要确认好才继续")
+![cleck swap](/posts/2023/10/21/free_cleck_swap.png "要确认好才继续")
 
 ## > 安装基本系统和软件 {#10}
 
@@ -398,7 +398,7 @@ pacstrap /mnt base base-devel linux linux-firmware btrfs-progs networkmanager vi
 
 ### 用 btrfs 额外装 btrfs-progs 包，可以把 vim 切换成你喜欢的编辑器比如 Emacs或者 Nano
 
-![insatll base system](/_data/images/2023-10-11-arch-linux-insatll_img/pacstrap_insatll_base_system.png)
+![insatll base system](/posts/2023/10/21/pacstrap_insatll_base_system.png)
 
 ## > 生成fstab文件 {#11}
 
@@ -414,7 +414,7 @@ genfstab -U /mnt > /mnt/etc/fstab # 用 arch-install-script 脚本提供的 genf
 cat /etc/fstab
 ```
 
-![fstab](/_data/images/2023-10-11-arch-linux-insatll_img/fstab_message.png)
+![fstab](/posts/2023/10/21/fstab_message.png)
 
 输出结果应该类似。
 
@@ -426,7 +426,7 @@ cat /etc/fstab
 arch-chroot /mnt # 可以看到原来的/mnt 变成了 /
 ```
 
-![arch-chroot](/_data/images/2023-10-11-arch-linux-insatll_img/arch-chroot.png)
+![arch-chroot](/posts/2023/10/21/arch-chroot.png)
 
 ## > 设置主机名和时区 {#13}
 
@@ -436,7 +436,7 @@ vim /etc/hostname
 
 文件写上你的主机名（最好有意义），这里我的主机的名字是 live-arch
 
-![hostname](/_data/images/2023-10-11-arch-linux-insatll_img/hostname.png)
+![hostname](/posts/2023/10/21/hostname.png)
 
 然后在/etc/hosts文件这样写：
 
@@ -450,7 +450,7 @@ vim /etc/hosts
 127.0.0.1 live-arch.localdomain live-arch
 ```
 
-![hosts](/_data/images/2023-10-11-arch-linux-insatll_img/hosts_file.png)
+![hosts](/posts/2023/10/21/hosts_file.png)
 
 **注意这里的 live-arch 要替换成自己的主机名**
 创建时区的符号链接，这里是上海（没有北京）
@@ -481,7 +481,7 @@ vim /etc/locale.gen
 locale-gen
 ```
 
-![locale-gen](/_data/images/2023-10-11-arch-linux-insatll_img/locale-gen.png)
+![locale-gen](/posts/2023/10/21/locale-gen.png)
 
 向 /etc/locale.conf 输入内容：
 
@@ -538,11 +538,11 @@ pacman -S grub efibootmgr os-prober
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=live-arch
 ```
 
-### --efi-directory=/boot/efi 是将grubx64.efi安装到指定的目录（这里是 /boot/efi）
+### --efi-directory=/boot/efi 是将 grubx64.efi 安装到指定的目录（这里是 /boot/efi）
 
 ### --bootloader-id=live-arch 是取名为 live-arch（你也可以叫其他的）
 
-![grub-insatll-done](/_data/images/2023-10-11-arch-linux-insatll_img/grub-insatll-done.png)
+![grub-insatll-done](/posts/2023/10/21/grub-insatll-done.png)
 
 然后做一些**可选**的小配置
 
@@ -558,9 +558,9 @@ vim /etc/default/grub
 
 编辑完成后如下：
 
-![grub-cfg](/_data/images/2023-10-11-arch-linux-insatll_img/grub_edit.png)
+![grub-cfg](/posts/2023/10/21/grub_edit.png)
 
-![enable_prober](/_data/images/2023-10-11-arch-linux-insatll_img/enable_os_prober.png)
+![enable_prober](/posts/2023/10/21/enable_os_prober.png)
 
 执行 grub-mkconfig -o /boot/grub/grub.cfg 生成grub的配置文件：
 
@@ -570,7 +570,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 结果大概如下：
 
-![grub-mkconfig](/_data/images/2023-10-11-arch-linux-insatll_img/grub-mkconfig_done.png)
+![grub-mkconfig](/posts/2023/10/21/grub-mkconfig_done.png)
 
 ### 注：这里没有引导到 Windows 和其他操作系统是正常现象，是 os-prober 的bug。只需要等下重启后在新安装的系统里再一次执行「grub-mkconfig -o /boot/grub/grub.cfg 」命令即可
 
@@ -586,13 +586,13 @@ reboot         # 重启
 
 这个时候可以拔掉U盘了。
 
-![setup-to-grub](/_data/images/2023-10-11-arch-linux-insatll_img/new-arch-setup-to-grub.png)
+![setup-to-grub](/posts/2023/10/21/new-arch-setup-to-grub.png)
 
 选择「Arch Linux」项。
 
 Enter
 
-![login](/_data/images/2023-10-11-arch-linux-insatll_img/login_to_system.png)
+![login](/posts/2023/10/21/login_to_system.png)
 
 进入系统后在「archlinux login」里输入你的用户名（这里是root），然后 Enter 输入密码（密码是不可见的）。输入完毕摁 Enter 然后登入系统。
 
@@ -615,14 +615,14 @@ ping -c 4 baidu.com # 测试连接
 ```
 
 ```bash
-pacman -S neofetch # 最后可以安装neofetch
+pacman -S neofetch # 最后可以安装 neofetch
 ```
 
 ```bash
 neofetch
 ```
 
-![neofetch](/_data/images/2023-10-11-arch-linux-insatll_img/neofetch_to_system_message.png "帅气的Arch Logo")
+![neofetch](/posts/2023/10/21/neofetch_to_system_message.png "帅气的Arch Logo")
 
 恭喜你，你成功在你的计算机上安装了Arch Linux 操作系统
 
