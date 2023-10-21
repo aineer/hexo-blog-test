@@ -2,8 +2,7 @@
 layout: mypost
 title: Arch Linux 安装教程
 author: Two
-catrgories: jekyll
-tags: [Arch Linux, GNU/Linux, 自由软件, 操作系统]
+categories:  [Arch Linux, GNU/Linux, 自由软件, 操作系统]
 ---
 
 > 更新于2023年10月21日
