@@ -104,25 +104,25 @@ Windows 10里右键点击 「开始菜单」 > 点击 「磁盘管理」
 
 ### 教程分几步
 
-1. [禁用 reflector](#禁用-reflector-服务)
-2. [验证引导模式](#验证引导模式)
-3. [联网] (#3)
-4. [测试网络连通性] (#4)
-5. [同步时间] (#5)
-6. [更换镜像源] (#6)
-7. [磁盘分区] (#7)
-8. [格式化] (#8)
-9. [挂载] (#9)
-10. [安装基本系统和软件] (#10)
-11. [生成 fstab 文件] (#11)
-12. [Chroot root] (#12)
-13. [设置主机名和时区] (#13)
-14. [硬件时间设置] (#14)
-15. [设置 Locale] (#15)
-16. [设置 root 密码] (#16)
-17. [安装微码] (#17)
-18. [安装和设置引导程序] (#18)
-19. [重启到新系统] (#19)
+1. 禁用 reflector
+2. 验证引导模式
+3. 联网
+4. 测试网络连通性
+5. 同步时间
+6. 更换镜像源
+7. 磁盘分区
+8. 格式化
+9. 挂载
+10. 安装基本系统和软件
+11. 生成 fstab 文件
+12. Chroot root
+13. 设置主机名和时区
+14. 硬件时间设置
+15. 设置 Locale
+16. 设置 root 密码
+17. 安装微码
+18. 安装和设置引导程序
+19. 重启到新系统
 
 下面根据这些步骤进行安装。
 
@@ -155,7 +155,7 @@ ls /sys/firmware/efi/efivars/
 
 可以看到输入了一堆EFI变量，代表当前是UEFI启动。（如果是传统BIOS 启动可能根本不会有这个目录）。
 
-## 联网 {#3}
+## 联网
 
 Arch Linux 的安装需要联网。
 
@@ -182,7 +182,7 @@ Arch Linux 的安装需要联网。
 
 ### 注：「#」开头的是注释是为了方便读者理解加的，不用敲上
 
-## 测试网络连通性 {#4}
+## 测试网络连通性
 
 ```bash
 ping -c 4 www.baidu.com
@@ -192,7 +192,7 @@ ping -c 4 www.baidu.com
 
 如果显示超时的话请回到联网一节重新连接。
 
-## 同步时间 {#5}
+## 同步时间
 
 同步系统时间是**非常重要**的。系统时间不正确时有些应用程序甚至无法正常执行。这里用 **timedatectl** 同步时间。
 
@@ -202,7 +202,7 @@ timedatectl set-ntp true
 
 ![sync_time](/posts/2023/10/21/sync_time.png)
 
-## 更换镜像源 {#6}
+## 更换镜像源
 
 在安装过程中，推荐使用一个国内的镜像站来加快下载速度。
 
@@ -226,7 +226,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\$arch
 如图：
 ![mirror](/posts/2023/10/21/mirror_list.png)
 
-## 磁盘分区 {#7}
+## 磁盘分区
 
 这里我用的分区分案是：
 ・/boot分区分400M。
@@ -284,7 +284,7 @@ cfdisk 是一个磁盘分区工具，用来方便的进行磁盘分区。
 
 ![lsblk](/posts/2023/10/21/lsblk_parttion_message.png)
 
-## 格式化 {#8}
+## 格式化
 
 分好区然后把它们格式化成对应文件系统的格式
 
@@ -354,7 +354,7 @@ btrfs subvolume list -p /mnt
 umount /mnt
 ```
 
-## 挂载 {#9}
+## 挂载
 
 挂载格式好的分区到 /mnt，/mnt里面的就是你安装的系统。
 
@@ -387,7 +387,7 @@ free -h
 
 ![cleck swap](/posts/2023/10/21/free_cleck_swap.png "要确认好才继续")
 
-## 安装基本系统和软件 {#10}
+## 安装基本系统和软件
 
 使用 pacstrap 脚本安装基础包、内核、固件包和其他常用工具：
 
@@ -399,7 +399,7 @@ pacstrap /mnt base base-devel linux linux-firmware btrfs-progs networkmanager vi
 
 ![insatll base system](/posts/2023/10/21/pacstrap_insatll_base_system.png)
 
-## 生成fstab文件 {#11}
+## 生成fstab文件
 
 fstab 文件可用于定义磁盘分区，各种其他块设备或远程文件系统应如何装入文件系统。 关于更多fstab的信息可以看[这里](https://wiki.archlinux.org/title/Fstab)
 
@@ -417,7 +417,7 @@ cat /etc/fstab
 
 输出结果应该类似。
 
-## Chroot root {#12}
+## Chroot root
 
 切换到新安装好的 Arch Linux系统
 
@@ -427,7 +427,7 @@ arch-chroot /mnt # 可以看到原来的/mnt 变成了 /
 
 ![arch-chroot](/posts/2023/10/21/arch-chroot.png)
 
-## 设置主机名和时区 {#13}
+## 设置主机名和时区
 
 ```bash
 vim /etc/hostname
@@ -458,13 +458,13 @@ vim /etc/hosts
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
 
-## 硬件时间设置 {#14}
+## 硬件时间设置
 
 ```bash
 hwclock --systohc # 同步硬件时间
 ```
 
-## 设置 Locale {#15}
+## 设置 Locale
 
 Locale 决定了软件使用的语言、书写习惯和字符集。
 
@@ -498,7 +498,7 @@ passwd root
 
 ### 注：密码输入时是看不到的，不要以为是键盘或者系统坏了
 
-## 安装微码 {#17}
+## 安装微码
 
 来自 archcn wiki：
 
@@ -519,7 +519,7 @@ pacman -S intel-ucode # intel
 pacman -S amd-ucode # amd 
 ```
 
-## 安装和设置引导程序 {#18}
+## 安装和设置引导程序
 
 这里用 grub（GRand Unified Bootloader）引导程序来引导新安装的Arch Linux。
 也可以参考 [wiki](https://wiki.archlinux.org/title/GRUB)
@@ -531,7 +531,7 @@ pacman -S grub efibootmgr os-prober
 # grub用来引导、efibootmgr将启动项写入NVRAM、os-prober用来引导多系统
 ```
 
-安装grub
+安装 grub
 
 ```bash
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=live-arch
@@ -573,7 +573,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ### 注：这里没有引导到 Windows 和其他操作系统是正常现象，是 os-prober 的bug。只需要等下重启后在新安装的系统里再一次执行「grub-mkconfig -o /boot/grub/grub.cfg 」命令即可
 
-## 重启到新系统 {#19}
+## 重启到新系统
 
 ### 到激动人心的时刻了
 
