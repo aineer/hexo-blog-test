@@ -2,7 +2,7 @@ encoding: utf-8
 
 # SEO相关信息
 title: Two Blog
-description: 你真美啊，请停一停
+description: 世事洞明皆学问，人情练达即文章。
 keywords: foobar
 author: Two
 footerText:
@@ -35,8 +35,8 @@ menu:
     url: /pages/search.html
   - title: 友链
     url: /pages/links.html
-  - title: 留言
-    url: /pages/chat.html
+  #- title: 留言
+  #  url: /pages/chat.html
   - title: 关于
     url: /pages/about.html
 
@@ -57,3 +57,10 @@ extCount: true
 links:
   # - title: xxx
   #  url: https://www.foobar.com
+
+  - title: Two Blogger
+  - url: https://fossusera.blogspot.com
+
+  - title: 一把江湖刀
+  - url: https://jianghudao.top
+
