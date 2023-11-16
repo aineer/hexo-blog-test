@@ -16,13 +16,15 @@ title: 友情链接
   {%- for link in site.links %}
   <li>
    <p>
-      {{ link.url }}
+      {{ link.title }}
+      <a href="{{ link.url }}" title="{{ link.desc }}" target="_blank" >
       {{ site.description }}
       {{ site.domainUrl }}
       {{ site.baseurl }}
       {{ site.domainUrl }}
-      {{ site.baseurl }}
    </p>
   </li>
   {%- endfor %}
 </ul>
+
+a href="{{ link.url }}" title="{{ link.desc }}" target="_blank"
