@@ -15,8 +15,10 @@ title: 友情链接
 <ul>
   {%- for link in site.links %}
   <li>
-    <p>{{ site.title }} 
-    <a href="{{ link.url }}" target="_blank" ></p>
+名称：{{ site.title }}
+描述：{{ site.description }}
+地址：{{ site.domainUrl }}{{ site.baseurl }}
+头像：{{ site.domainUrl }}{{ site.baseurl }}/static/img/logo.jpg
   </li>
   {%- endfor %}
 </ul>
