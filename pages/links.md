@@ -15,9 +15,8 @@ title: 友情链接
 <ul>
   {%- for link in site.links %}
   <li>
-    <p> {{ stie.title }} </p>
-    <br>
-    <p> <a href="{{ link.url }}" target="_blank" </p>
+    <p>{{ site.title }}</p>
+    <p><a href="{{ link.url }}" target="_blank" ></p>
   </li>
   {%- endfor %}
 </ul>
