@@ -3,7 +3,7 @@ encoding: utf-8
 # SEO相关信息
 title: Two Blog
 description: 世事洞明皆学问，人情练达即文章。
-keywords: foobar
+keywords: https://aineer.github.io
 author: Two
 footerText:
 
@@ -35,8 +35,8 @@ menu:
     url: /pages/search.html
   - title: 友链
     url: /pages/links.html
-  #- title: 留言
-  #  url: /pages/chat.html
+  - title: 留言
+    url: /pages/chat.html
   - title: 关于
     url: /pages/about.html
 
@@ -60,7 +60,7 @@ links:
 
   - title: Two Blogger
     url: https://fossusera.blogspot.com
-    desc: 玩原神玩的
+    desc: Two 的小天地
   - title: 一把江湖刀
     url: https://jianghudao.top
-    desc: "只会写Hello,World的菜鸟"
+    desc: 江湖刀的博客
