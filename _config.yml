@@ -51,7 +51,7 @@ extAdsense: false
 extMath: false
 
 # 显示访问量统计，由不蒜子提供服务
-extCount: true
+extCount: false
 
 # 友情链接
 links:
@@ -60,7 +60,6 @@ links:
 
   - title: Two Blogger
     url: https://fossusera.blogspot.com
-
   - title: 一把江湖刀
     url: https://jianghudao.top
 
