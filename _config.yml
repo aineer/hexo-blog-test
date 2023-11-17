@@ -5,7 +5,7 @@ title: Two Blog
 description: 世事洞明皆学问，人情练达即文章。
 keywords: foobar
 author: Two
-footerText:
+footerText: https://aineer.github.io
 
 # 这些不要动
 permalink: /posts/:year/:month/:day/:title.html
@@ -60,7 +60,7 @@ links:
 
   - title: Two Blogger
     url: https://fossusera.blogspot.com
-    desc: 玩原神玩的
+    desc: Two 的小天地
   - title: 一把江湖刀
     url: https://jianghudao.top
-    desc: "只会写Hello,World的菜鸟"
+    desc: 江湖刀的博客
