@@ -21,13 +21,10 @@ domainUrl: ''
 baseurl: ''
 
 # gitalk 评论
-github:
-  username: aineer # github 用户名
-gitalk:
-    repo: aineer.github.io #  github 上博客仓库的名字
-    client_id: dd9054bbf29bc480b2a8  # Client ID
-    client_secret: 26e8565dc968ef742711591dc01ebc90b70ee3e2 # Client Secret
-
+comment_gitalk_clientId: dd9054bbf29bc480b2a8
+comment_gitalk_clientSecret: 26e8565dc968ef742711591dc01ebc90b70ee3e2
+comment_gitalk_repo: aineer.github.io
+github_username: aineer
 
 # 吐个槽地址，会在chat页面中重定向到该地址
 tucaoUrl:
