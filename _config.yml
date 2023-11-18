@@ -3,9 +3,9 @@ encoding: utf-8
 # SEO相关信息
 title: Two Blog
 description: 世事洞明皆学问，人情练达即文章。
-keywords: foobar
+keywords: https://aineer.github.io
 author: Two
-footerText: https://aineer.github.io
+footerText:
 
 # 这些不要动
 permalink: /posts/:year/:month/:day/:title.html
@@ -19,12 +19,6 @@ exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.
 # baseurl配置,如果网站部署在根目录下的其他目录中，请设置为 /目录名
 domainUrl: ''
 baseurl: ''
-
-# gitalk 评论
-comment_gitalk_clientId: dd9054bbf29bc480b2a8
-comment_gitalk_clientSecret: 26e8565dc968ef742711591dc01ebc90b70ee3e2
-comment_gitalk_repo: aineer.github.io
-github_username: aineer
 
 # 吐个槽地址，会在chat页面中重定向到该地址
 tucaoUrl:
