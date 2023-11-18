@@ -20,9 +20,6 @@ exclude: ['CNAME', 'README.md', 'LICENSE', '_site', 'dist', 'Gemfile', 'Gemfile.
 domainUrl: ''
 baseurl: ''
 
-# 吐个槽地址，会在chat页面中重定向到该地址
-tucaoUrl:
-
 # 菜单
 # 必填字段 title: '文本' url: '链接'
 # 可选字段 target: '_blank' 新页面打开 
